@@ -1,6 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'package:news_app/models/article.dart';
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 
 import 'package:news_app/secret.dart';
 
@@ -36,11 +37,16 @@ class News {
         }
       } else {
         // Handle HTTP error (e.g., print an error message)
-        print("HTTP request failed with status: ${response.statusCode}");
+        if (kDebugMode) {
+          print("HTTP request failed with status: ${response.statusCode}");
+        }
       }
     } catch (e) {
       // Handle other errors (e.g., network error, JSON decoding error)
-      print("Error during HTTP request or JSON decoding: $e");
+      if (kDebugMode) {
+        if (kDebugMode) {}
+        print("Error during HTTP request or JSON decoding: $e");
+      }
     }
   }
 }
@@ -77,11 +83,15 @@ class NewsForCategory {
         }
       } else {
         // Handle HTTP error (e.g., print an error message)
-        print("HTTP request failed with status: ${response.statusCode}");
+        if (kDebugMode) {
+          print("HTTP request failed with status: ${response.statusCode}");
+        }
       }
     } catch (e) {
       // Handle other errors (e.g., network error, JSON decoding error)
-      print("Error during HTTP request or JSON decoding: $e");
+      if (kDebugMode) {
+        print("Error during HTTP request or JSON decoding: $e");
+      }
     }
   }
 }
